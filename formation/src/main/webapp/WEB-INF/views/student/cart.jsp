@@ -129,7 +129,7 @@
                                 <!-- Courses -->
 
                                 <div class="container-fluid page__container">
-                                    <h2 class="bold m-4 text-center p-4">Cart</h2>
+                                    <h2 class="bold m-4 text-center p-4"><i class="material-icons">shopping_cart</i> Cart</h2>
                                     
                                     
 
@@ -147,19 +147,19 @@
                                     <thead style="background-color: white">
                                         <tr>
                                             <th class="pro-title" style="color: black; font-size:18px">Course</th>
-                                            <th class="pro-price" style="color: black; font-size:18px">Price</th>
-                                            <th class="pro-quantity" style="color: black; font-size:18px">Places</th>
-                                            <th class="pro-subtotal" style="color: black; font-size:18px">Creation Date</th>
-                                            <th class="pro-remove" style="color: black; font-size:18px">Remove</th>
+                                            <th class="pro-price" style="color: black; font-size:18px">Location</th>
+                                            <th class="pro-quantity" style="color: black; font-size:18px">Date</th>
+                                            <th class="pro-subtotal" style="color: black; font-size:18px">Price</th>
+                                            <th class="pro-remove" style="color: black; font-size:18px">Action</th>
                                         </tr>
                                     </thead>
                                     <c:forEach items="${sessionScope.cart }" var="item">
                                     <tbody>
                                         <tr>
                                            <td class="pro-title"><a>${item.course.name }</a></td>
-                                            <td class="pro-price"><span>${item.course.price }</span></td>
-                                            <td class="pro-quantity"><span>${item.course.placesNumber }</span></td>
-                                            <td class="pro-subtotal"><span>${item.course.createdOn}</span></td>
+                                            <td class="pro-price"><span>${item.course.location }</span></td>
+                                            <td class="pro-quantity"><span>${item.course.date }</span></td>
+                                            <td class="pro-subtotal"><span>${item.course.price} MAD</span></td>
                                             <td class="pro-remove"><a href="/cart/deleteProduct?id=${item.course.id}"><img alt="delete" src="../images/delete.png" style="width: 20px;margin-left: 50px;"> </a></td>
                                         </tr>
                                     </tbody>
@@ -169,11 +169,11 @@
                             </div>
                             <!-- Cart Update Option -->
                             <div class="cart-update-option d-block d-md-flex justify-content-between">
-                                <div class="cart-update" style="background-color: #1377c9">
-	                                     <a href="/course/takeCourse" class="btn btn-success" style="width: 200px; color:black">Take More Courses</a> 
+                                <div class="cart-update">
+	                                     <a href="/course/takeCourse" class="btn btn-primary" style="width: 200px; color:black">Take More Courses</a> 
                                 </div>
-                                <div class="cart-update" style="margin-left: 400px; background-color: #1377c9">
-                                    <input type="submit" class="btn btn-success" value="Update Cart" style="color:black">
+                                <div class="cart-update" style="margin-left: 400px;">
+                                    <input type="submit" class="btn btn-warning" value="Update Cart" style="color:black">
                                 </div>
                             </div>
                         </div>
@@ -227,7 +227,7 @@
                                 <div class="d-flex align-items-center sidebar-p-a border-bottom bg-light">
                                     <a href="#" class="flex d-flex align-items-center text-body text-underline-0">
                                         <span class="avatar avatar-sm mr-2">
-                                            <span class="avatar-title rounded-circle bg-soft-secondary text-muted">AD</span>
+                                            <span class="avatar-title rounded-circle bg-soft-secondary text-muted"><img src="../images/avatar.png" class="rounded-circle" width="50" alt="avatar"></span>
                                         </span>
                                         <span class="flex d-flex flex-column">
                                             <strong>
@@ -270,7 +270,7 @@
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <span class="sidebar-menu-text">MyCourses</span>
+                                            <span class="sidebar-menu-text">My Courses</span>
                                         </a>
                                     </li>
 
@@ -288,18 +288,31 @@
                                         </a>
                                     </li>
 									
-									<li class="sidebar-menu-item active">
-                                        <a class="sidebar-menu-button" href="instructor-payout.html">
-                                            <span class="sidebar-menu-icon sidebar-menu-icon--left">
-                                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="22" height="22">
-                                                    <g transform="matrix(1.6666666666666667,0,0,1.6666666666666667,0,0)">
-                                                        <path d="M20.375,15.792V4.958c0.008-0.59-0.463-1.075-1.053-1.083c0,0,0,0,0,0H1.428c-0.59,0.008-1.061,0.493-1.053,1.083 c0,0,0,0,0,0v10.834c-0.008,0.59,0.463,1.075,1.053,1.083c0,0,0,0,0,0h17.894C19.912,16.867,20.383,16.382,20.375,15.792 C20.375,15.792,20.375,15.792,20.375,15.792z M10.375,13.375c-1.657,0-3-1.343-3-3s1.343-3,3-3s3,1.343,3,3 S12.032,13.375,10.375,13.375z M22.875,6.625c-0.414,0-0.75,0.336-0.75,0.75v11c0,0.138-0.112,0.25-0.25,0.25h-18 c-0.414,0-0.75,0.336-0.75,0.75s0.336,0.75,0.75,0.75h18c0.966-0.001,1.749-0.784,1.75-1.75v-11 C23.625,6.961,23.289,6.625,22.875,6.625z" stroke="none" fill="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    </g>
-                                                </svg>
-                                            </span>
-                                            <span class="sidebar-menu-text">Cart</span>
-                                        </a>
-                                    </li>
+									<li class="sidebar-menu-item">
+									  	<a class="sidebar-menu-button" href="/cart/myCart">
+										  	<span class="sidebar-menu-icon sidebar-menu-icon--left">
+											  	<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="22" height="22">
+												  	<g transform="matrix(1.6666666666666667,0,0,1.6666666666666667,0,0)">
+												  	<path d="M20.375,15.792V4.958c0.008-0.59-0.463-1.075-1.053-1.083c0,0,0,0,0,0H1.428c-0.59,0.008-1.061,0.493-1.053,1.083 c0,0,0,0,0,0v10.834c-0.008,0.59,0.463,1.075,1.053,1.083c0,0,0,0,0,0h17.894C19.912,16.867,20.383,16.382,20.375,15.792 C20.375,15.792,20.375,15.792,20.375,15.792z M10.375,13.375c-1.657,0-3-1.343-3-3s1.343-3,3-3s3,1.343,3,3 S12.032,13.375,10.375,13.375z M22.875,6.625c-0.414,0-0.75,0.336-0.75,0.75v11c0,0.138-0.112,0.25-0.25,0.25h-18 c-0.414,0-0.75,0.336-0.75,0.75s0.336,0.75,0.75,0.75h18c0.966-0.001,1.749-0.784,1.75-1.75v-11 C23.625,6.961,23.289,6.625,22.875,6.625z" stroke="none" fill="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"></path>
+												 	</g>
+											 	</svg>
+										 	</span>
+										 	<span class="sidebar-menu-text">My Cart</span>
+										 </a>
+									 </li>
+									 
+									<li class="sidebar-menu-item">
+									  	<a class="sidebar-menu-button" href="/enroll/unconfirmed">
+										  	<span class="sidebar-menu-icon sidebar-menu-icon--left">
+											  	<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="22" height="22">
+												  	<g transform="matrix(1.6666666666666667,0,0,1.6666666666666667,0,0)">
+												  	<path d="M20.375,15.792V4.958c0.008-0.59-0.463-1.075-1.053-1.083c0,0,0,0,0,0H1.428c-0.59,0.008-1.061,0.493-1.053,1.083 c0,0,0,0,0,0v10.834c-0.008,0.59,0.463,1.075,1.053,1.083c0,0,0,0,0,0h17.894C19.912,16.867,20.383,16.382,20.375,15.792 C20.375,15.792,20.375,15.792,20.375,15.792z M10.375,13.375c-1.657,0-3-1.343-3-3s1.343-3,3-3s3,1.343,3,3 S12.032,13.375,10.375,13.375z M22.875,6.625c-0.414,0-0.75,0.336-0.75,0.75v11c0,0.138-0.112,0.25-0.25,0.25h-18 c-0.414,0-0.75,0.336-0.75,0.75s0.336,0.75,0.75,0.75h18c0.966-0.001,1.749-0.784,1.75-1.75v-11 C23.625,6.961,23.289,6.625,22.875,6.625z" stroke="none" fill="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"></path>
+												 	</g>
+											 	</svg>
+										 	</span>
+										 	<span class="sidebar-menu-text">Enrolled Courses</span>
+										 </a>
+									 </li>
                                     
                                     <li class="sidebar-menu-item">
                                         <a class="sidebar-menu-button" href="/editStudent">

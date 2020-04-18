@@ -19,7 +19,6 @@ import com.fst.entity.Student;
 import com.fst.entity.User;
 import com.fst.service.CourseService;
 import com.fst.service.EnrollService;
-import com.fst.service.SectionService;
 import com.fst.service.UserService;
 import com.fst.util.EmailUtil;
 
@@ -35,9 +34,6 @@ public class EnrollController {
 	
 	@Autowired
 	private UserService userService;
-	
-	@Autowired
-	private SectionService sectionService;
 	
 	@Autowired
 	private EmailUtil emailUtil;
@@ -80,7 +76,7 @@ public class EnrollController {
 						+ "Congratulations!  You applied to the " +course.getName()+" Course.\r\n" + 
 						"Next Step: Confirm your participation \r\n" +
 						"To secure your spot in the course, please confirm your participation  by contacting me in  06 50 30 33 15 for the paiement or other informations,\r\n" + 
-						"You must confirm your participation by April 10th at 11:59 PM UTC,  \r\n" + 
+						"You must confirm your participation by April 30th at 11:59 PM UTC,  \r\n" + 
 						"-- \r\n"
 						+ " Training Management Team  \r\n" + 
 						"Copyright © 2020 Training Management App, All rights reserved. \r\n");
@@ -107,23 +103,18 @@ public class EnrollController {
 			
 		if( cart != null ) {
 			
-			System.out.println("user : " + user);
 			for( int i= 0; i< cart.size(); i++ ) {
 				
-				System.out.println(" in for loop i : "+ i +" : cart.get(i).getCourse().getId() :  " + cart.get(i).getCourse().getId());
 				int nbr = enrollService.findDuplicateEnroll(user.getId(), cart.get(i).getCourse().getId());
-				System.out.println(" nbr of duplicated : " + nbr);
 				if(nbr == 0) {
 				Enroll enroll = new Enroll();
 				Course savedCourse = courseService.getById(cart.get(i).getCourse().getId());
-				System.out.println(" in if i : "+ i +" : savedCourse :  " + savedCourse);
 				savedCourse.addEnroll(enroll);
 				Student savedStudent = (Student) userService.getById(user.getId());
 				savedStudent.addEnroll(enroll);
 				enroll.setConfirm(false);
 				enrollService.save(enroll);
 				
-				System.out.println(" enroll saved : " +enroll);
 				}else {
 					System.out.println(" Course already enrolled! ");
 				}
@@ -155,26 +146,6 @@ public class EnrollController {
 		modelMap.addAttribute("unconfirmed", enrolledCoures);
 		return "student/myCart";
 	}
-	// One enroll course
-//	@PostMapping("/{idStudent}/{idCourse}")
-//	public Enroll createEnroll(@RequestParam("idStudent") Long idStudent, @RequestParam("idCourse") Long idCourse ) {
-//		
-//		int nbr = enrollService.findDuplicateEnroll(idStudent, idCourse);
-//		if(nbr == 0) {
-//			Enroll enroll = new Enroll();
-//			Course savedCourse = courseService.getById(idCourse);
-//			savedCourse.addEnroll(enroll);
-//			Student savedStudent = (Student) userService.getById(idStudent);
-//			savedStudent.addEnroll(enroll);
-//			enroll.setConfirm(false);
-//			Enroll createdEnroll = enrollService.save(enroll);
-//			return createdEnroll;
-//			
-//		}else {
-//			return null;
-//		}
-//		
-//	}
 	
 	@RequestMapping("/confirm")
 	private String confirmEnroll(Principal principale, @RequestParam("id") Long id, ModelMap modelMap) {

@@ -12,7 +12,7 @@
                                 <div class="d-flex align-items-center sidebar-p-a border-bottom bg-light">
                                     <a href="#" class="flex d-flex align-items-center text-body text-underline-0">
                                         <span class="avatar avatar-sm mr-2">
-                                            <span class="avatar-title rounded-circle bg-soft-secondary text-muted">AD</span>
+                                            <span class="avatar-title rounded-circle bg-soft-secondary text-muted"><img src="../images/avatar.png" class="rounded-circle" width="50" alt="avatar"></span>
                                         </span>
                                         <span class="flex d-flex flex-column">
                                             <strong>
@@ -33,7 +33,7 @@
                                 <!-- Side Bar Menu -->
                                 <ul class="sidebar-menu mt-0">
                                     <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="/course/index">
+                                        <a class="sidebar-menu-button" href="/instructor">
                                             <span class="sidebar-menu-icon sidebar-menu-icon--left">
                                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40"

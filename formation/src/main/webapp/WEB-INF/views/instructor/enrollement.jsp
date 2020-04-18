@@ -33,7 +33,7 @@
                            <form action="/enroll/sendMail?id=${idCourse }" method="post">
 	                            <h2 class="m-lg-0"><b>Student Enrollments</b></h2>                       
 <%-- 	                            <a href="/enroll/sendMail?id=${idCourse }" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#modal-success">Send Mail <i class="material-icons">mail_outline</i></a> --%>
-                        		<button type="submit" class="btn btn-success" data-toggle="modal" data-target="#modal-success" style="float: right;margin-right: -700px;">Send Mail</button>
+                        		<button type="submit" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#modal-success" style="float: right;margin-right: -700px;">Send Mail <i class="material-icons">mail_outline</i></button>
                         	</form>
                         </div>
                     </div>

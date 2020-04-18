@@ -11,4 +11,6 @@ public interface RateService {
 	float getAVGestablishmentRate(Long courseId);
 	
 	float getAVGinstructorRate(Long courseId);
+	
+	float getScore(Long id);
 }

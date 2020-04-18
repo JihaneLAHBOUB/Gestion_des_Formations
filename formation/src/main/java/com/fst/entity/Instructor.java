@@ -17,7 +17,7 @@ public class Instructor extends User {
 	private String newPassword;
 //	define a relation between instructor and course
 
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "instructor_id")
 	private List<Course> courses;
 

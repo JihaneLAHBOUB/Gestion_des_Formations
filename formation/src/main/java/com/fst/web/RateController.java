@@ -7,9 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -70,18 +68,5 @@ public class RateController {
 		return "student/myCourses";
 	}
 	
-	@GetMapping("/score/{idCourse}")
-	public float getScore(@PathVariable("idCourse") Long idCourse) {
-		
-		float somme=0;
-		
-		float avgContentRate = rateService.getAVGContentRate(idCourse);
-		float avgEstablishmentRate = rateService.getAVGestablishmentRate(idCourse);
-		float avgInstructorRate = rateService.getAVGinstructorRate(idCourse);
-		
-		somme = avgContentRate + avgEstablishmentRate + avgInstructorRate;
-		return somme/3;
-		
-	}
 	
 }

@@ -52,10 +52,12 @@ public class HomeController {
 	@RequestMapping("instructor")
 	public String pageAdmin(Principal principale, ModelMap modelMap) {
 		User user = userService.findUser(principale.getName());
+		System.out.println(" name of home user " + user.getId());
 		List<Course> list = courseService.getInstructorCourses(user.getId());
+		System.out.println(" list course of home " +list );
 		List<User> listUser = enrollService.getEnrolledStudents();
 		List<Course> recentCoures = courseService.getRecentCourses();
-		if(list.size() == 0 ) {
+		if(list.size() != 0 ) {
 			modelMap.addAttribute("nbrCourse", list.size());
 			modelMap.addAttribute("nbrStudent", listUser.size());
 			modelMap.addAttribute("date", recentCoures.get(0).getDate());
@@ -88,8 +90,6 @@ public class HomeController {
 	
 	@GetMapping("success")
 	public @ResponseBody String success(@AuthenticationPrincipal OAuth2User user) {
-		System.out.println("in success : " + user);
-		System.out.println(user.getAttributes());
 		String nom = user.getAttribute("name");
 		String email = user.getAttribute("email");
 		String photo = "<img scr="+user.getAttribute("picture")+">";
@@ -120,8 +120,6 @@ public class HomeController {
 		User currentUser = userService.findUser(principal.getName());
 		user.setId(currentUser.getId());
 		user.setRoles(currentUser.getRoles());
-		System.out.println( "submited raw user.getPassword()) : " + user.getPassword() );
-		System.out.println( "storage currentUser.getPassword() : " + currentUser.getPassword() );
 		if( passwordEncoder.matches(user.getPassword(), currentUser.getPassword())) {
 			System.out.println(" password matches ");
 			user.setPassword(passwordEncoder.encode(user.getNewPassword()));
@@ -133,11 +131,7 @@ public class HomeController {
 		}
 		
 		userService.update( user );
-//		System.out.println(" user.getId(): " + user.getId());
-//		System.out.println(" user.getUsername() : " + user.getUsername() );
 		System.out.println(" New password user.getPassword()) : " + user.getNewPassword() );
-//		System.out.println(" user.getEmail()  : " + user.getEmail() );
-//		System.out.println(" user.getRoles() : " + user.getRoles() );
 		return "editAccountStudent";
 	}
 	
@@ -154,7 +148,6 @@ public class HomeController {
 			modelMap.addAttribute("User", user);
 		}
 
-		
 		return "editAccountInstructor";
 	}
 	
@@ -164,8 +157,6 @@ public class HomeController {
 		User currentUser = userService.findUser(principal.getName());
 		user.setId(currentUser.getId());
 		user.setRoles(currentUser.getRoles());
-		System.out.println( "submited raw user.getPassword()) : " + user.getPassword() );
-		System.out.println( "storage currentUser.getPassword() : " + currentUser.getPassword() );
 		if( passwordEncoder.matches(user.getPassword(), currentUser.getPassword())) {
 			System.out.println(" password matches ");
 			user.setPassword(passwordEncoder.encode(user.getNewPassword()));

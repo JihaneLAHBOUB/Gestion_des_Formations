@@ -33,4 +33,14 @@ public class RateServiceImpl implements RateService {
 		return average;
 	}
 
+	@Override
+	public float getScore(Long id) {
+		float somme=0;
+		float avgContentRate = getAVGContentRate(id);
+		float avgEstablishmentRate = getAVGestablishmentRate(id);
+		float avgInstructorRate = getAVGinstructorRate(id);
+		
+		somme = avgContentRate + avgEstablishmentRate + avgInstructorRate;
+		return somme/3;
+	}
 }

@@ -139,7 +139,7 @@
                                 <div class="d-flex align-items-center sidebar-p-a border-bottom bg-light">
                                     <a href="#" class="flex d-flex align-items-center text-body text-underline-0">
                                         <span class="avatar avatar-sm mr-2">
-                                            <span class="avatar-title rounded-circle bg-soft-secondary text-muted">AD</span>
+                                            <span class="avatar-title rounded-circle bg-soft-secondary text-muted"><img src="../images/avatar.png" class="rounded-circle" width="50" alt="avatar"></span>
                                         </span>
                                         <span class="flex d-flex flex-column">
                                             <strong>

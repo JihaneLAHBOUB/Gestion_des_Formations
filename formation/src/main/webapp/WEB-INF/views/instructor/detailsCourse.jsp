@@ -37,7 +37,7 @@
                                         </div>
                                         
 	                                        <a href="/course/updateCourse?id=${course.id}" style="color: red;">
-	                                        	<i class="material-icons" style="margin-left: 640px;" >edit</i>
+	                                        	<i class="fa fa-edit fa-lg" style="margin-left: 640px;" ></i>
 	                                        </a>
                                        
                                         

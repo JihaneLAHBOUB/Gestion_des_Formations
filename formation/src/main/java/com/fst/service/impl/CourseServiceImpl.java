@@ -86,7 +86,7 @@ public class CourseServiceImpl implements CourseService {
 
 	@Override
 	public List<Course> getRecentCourses() {
-		List<Long> listId = courseDAO.getRecentCourses();
+		List<Long> listId = courseDAO.getRecentCourses(true);
 		
 		List<Course> listCourse = new ArrayList<>();
 		for (Long id : listId) {

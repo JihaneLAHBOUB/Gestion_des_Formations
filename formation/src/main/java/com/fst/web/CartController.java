@@ -25,9 +25,12 @@ public class CartController {
 	@Autowired
 	private CourseService courseService;
 	
-	@GetMapping
-	public List<ItemCart> getCartElement(HttpSession session){
-		return (List<ItemCart>) session.getAttribute("cart");
+
+	@RequestMapping("/myCart")
+	public String myCart(HttpSession session){
+		List<ItemCart> cart = (List<ItemCart>) session.getAttribute("cart");
+		session.setAttribute("cart", cart);
+		return "student/cart";
 	}
 	
 	@RequestMapping("/addProduct")
